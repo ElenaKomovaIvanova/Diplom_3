@@ -3,6 +3,9 @@ package page;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.http.ContentType;
 import io.restassured.specification.RequestSpecification;
+import org.example.Client;
+import org.example.PageObject;
+import org.example.User;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -23,9 +26,12 @@ public class PersonalAccountTest {
     private final String browser = "Firefox";
     //private final String browser = "Chrome";
     private static final String BURGER_URI = "https://stellarburgers.nomoreparties.site/";
-    private Client client = new Client();
+    private final Client client = new Client();
     String accessToken;
     User user;
+    private static final String EMAIL = "zxc@zxc.zxc";
+    private static final String PASSWORD = "112233";
+    private static final String NAME = "zxczxc";
 
     @Before
     public void before() {
@@ -37,91 +43,83 @@ public class PersonalAccountTest {
                         .setContentType(ContentType.JSON)
                         .build();
         client.setRequestSpecification(requestSpecification);
-        User user = new User("vldd@yandex.ru", "123444", "Marina");
+        User user = new User(EMAIL, PASSWORD, NAME);
         client.createUser(user);
-
     }
 
     @Test
-    public void personalAccountOk_test() {
+    public void personalAccountOkTest() {
 
         new WebDriverWait(driver, Duration.ofSeconds(50)).
-                until(ExpectedConditions.elementToBeClickable(By.xpath
-                        ("/html/body/div/div/header/nav/a/p")));
-        WebElement loginAccountButton = this.driver.findElement(PageObject.loginAccountButton);
+                until(ExpectedConditions.elementToBeClickable(PageObject.getPersonalAccountButton()));
+        WebElement loginAccountButton = this.driver.findElement(PageObject.getLoginAccountButton());
         loginAccountButton.click();
         accessToken = client.login();
-        WebElement personalAccountButton= this.driver.findElement(PageObject.personalAccountButton);
-        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", personalAccountButton);
+        WebElement personalAccountButton = this.driver.findElement(PageObject.getPersonalAccountButton());
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView();", personalAccountButton);
         personalAccountButton.click();
-        WebElement profileText = this.driver.findElement(PageObject.profileText);
+        WebElement profileText = this.driver.findElement(PageObject.getProfileText());
         String Profile = profileText.getText();
         Assert.assertTrue(Profile.contains("Профиль"));
-        }
-
-        @Test
-        public void personalAccountConstructorOk_test() {
-            new WebDriverWait(driver, Duration.ofSeconds(50)).
-                    until(ExpectedConditions.elementToBeClickable(By.xpath
-                            ("/html/body/div/div/header/nav/a/p")));
-            WebElement loginAccountButton = this.driver.findElement(PageObject.loginAccountButton);
-            loginAccountButton.click();
-            accessToken = client.login();
-            WebElement personalAccountButton= this.driver.findElement(PageObject.personalAccountButton);
-            ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", personalAccountButton);
-            new WebDriverWait(driver, Duration.ofSeconds(50)).
-                    until(ExpectedConditions.visibilityOf(personalAccountButton));
-            personalAccountButton.click();
-            WebElement constructor = this.driver.findElement(PageObject.constructor);
-            constructor.click();
-            WebElement constructorText= this.driver.findElement(PageObject.constructorText);
-            String ConstructorText = constructorText.getText();
-            Assert.assertTrue(ConstructorText.contains("Соберите бургер"));
     }
 
     @Test
-    public void logoOk_test() {
+    public void personalAccountConstructorOkTest() {
         new WebDriverWait(driver, Duration.ofSeconds(50)).
-                until(ExpectedConditions.elementToBeClickable(By.xpath
-                        ("/html/body/div/div/header/nav/a/p")));
-        WebElement loginAccountButton = this.driver.findElement(PageObject.loginAccountButton);
+                until(ExpectedConditions.elementToBeClickable(PageObject.getPersonalAccountButton()));
+        WebElement loginAccountButton = this.driver.findElement(PageObject.getLoginAccountButton());
         loginAccountButton.click();
         accessToken = client.login();
-        WebElement personalAccountButton= this.driver.findElement(PageObject.personalAccountButton);
-        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", personalAccountButton);
+        WebElement personalAccountButton = this.driver.findElement(PageObject.getPersonalAccountButton());
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView();", personalAccountButton);
         new WebDriverWait(driver, Duration.ofSeconds(50)).
                 until(ExpectedConditions.visibilityOf(personalAccountButton));
         personalAccountButton.click();
-        WebElement logo = this.driver.findElement(PageObject.logo);
-        logo.click();
-        WebElement constructorText= this.driver.findElement(PageObject.constructorText);
+        WebElement constructor = this.driver.findElement(PageObject.getConstructor());
+        constructor.click();
+        WebElement constructorText = this.driver.findElement(PageObject.getConstructorText());
         String ConstructorText = constructorText.getText();
         Assert.assertTrue(ConstructorText.contains("Соберите бургер"));
     }
 
     @Test
-    public void exitOk() {
+    public void logoOkTest() {
         new WebDriverWait(driver, Duration.ofSeconds(50)).
-                until(ExpectedConditions.elementToBeClickable(By.xpath
-                        ("/html/body/div/div/header/nav/a/p")));
-        WebElement loginAccountButton = this.driver.findElement(PageObject.loginAccountButton);
+                until(ExpectedConditions.elementToBeClickable(PageObject.getPersonalAccountButton()));
+        WebElement loginAccountButton = this.driver.findElement(PageObject.getLoginAccountButton());
         loginAccountButton.click();
         accessToken = client.login();
-        WebElement personalAccountButton= this.driver.findElement(PageObject.personalAccountButton);
-        //((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", personalAccountButton);
+        WebElement personalAccountButton = this.driver.findElement(PageObject.getPersonalAccountButton());
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView();", personalAccountButton);
+        new WebDriverWait(driver, Duration.ofSeconds(50)).
+                until(ExpectedConditions.visibilityOf(personalAccountButton));
         personalAccountButton.click();
-        WebElement exitButton = this.driver.findElement(PageObject.exitButton);
-        exitButton.click();
-        WebElement inText = this.driver.findElement(PageObject.inText);
-        String InText = inText.getText();
-        Assert.assertTrue(InText.contains("Вход"));
-
-
+        WebElement logo = this.driver.findElement(PageObject.getLogo());
+        logo.click();
+        WebElement constructorText = this.driver.findElement(PageObject.getConstructorText());
+        String ConstructorText = constructorText.getText();
+        Assert.assertTrue(ConstructorText.contains("Соберите бургер"));
     }
 
+    @Test
+    public void exitOkTest() {
+        new WebDriverWait(driver, Duration.ofSeconds(50)).
+                until(ExpectedConditions.elementToBeClickable(PageObject.getPersonalAccountButton()));
+        WebElement loginAccountButton = this.driver.findElement(PageObject.getLoginAccountButton());
+        loginAccountButton.click();
+        accessToken = client.login();
+        WebElement personalAccountButton = this.driver.findElement(PageObject.getPersonalAccountButton());
+        //((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", personalAccountButton);
+        personalAccountButton.click();
+        WebElement exitButton = this.driver.findElement(PageObject.getExitButton());
+        exitButton.click();
+        WebElement inText = this.driver.findElement(PageObject.getInText());
+        String InText = inText.getText();
+        Assert.assertTrue(InText.contains("Вход"));
+    }
 
     @After
-    public void deleteUser () {
+    public void deleteUser() {
         client.deleteUser(accessToken);
         this.driver.quit();
     }

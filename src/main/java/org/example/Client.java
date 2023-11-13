@@ -1,23 +1,18 @@
-package page;
+package org.example;
 
-import io.restassured.builder.RequestSpecBuilder;
-import io.restassured.http.ContentType;
+import io.qameta.allure.Step;
 import io.restassured.response.ValidatableResponse;
 import io.restassured.specification.RequestSpecification;
-import org.junit.Assert;
+import org.example.PageObject;
+import org.example.User;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeDriverService;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
-import org.openqa.selenium.firefox.GeckoDriverService;
 import org.openqa.selenium.html5.LocalStorage;
 import org.openqa.selenium.html5.WebStorage;
-
-import java.io.File;
-import java.time.Duration;
 
 import static io.restassured.RestAssured.given;
 
@@ -33,6 +28,8 @@ public class Client {
 
     private static final String DELETE_USER = "/api/auth/user";
     private static final String CREATE_USER = "/api/auth/register";
+    private static final String EMAIL = "zxc@zxc.zxc";
+    private static final String PASSWORD = "112233";
     private RequestSpecification requestSpecification;
 
     public void setRequestSpecification(RequestSpecification requestSpecification) {
@@ -53,7 +50,7 @@ public class Client {
         return driver;
     }
 
-
+    @Step("Запрос по созданию пользователя")
     public ValidatableResponse createUser(User user) {
         return given()
                 .spec(requestSpecification)
@@ -65,6 +62,7 @@ public class Client {
                 .all();
     }
 
+    @Step("Запрос по удалению пользователя")
     public ValidatableResponse deleteUser(String accessToken) {
 
         return given()
@@ -77,14 +75,15 @@ public class Client {
 
     }
 
+    @Step("Запрос по авторизации пользователя")
     public String login() {
-        WebElement emailEntrance = this.driver.findElement(PageObject.emailEntrance);
+        WebElement emailEntrance = this.driver.findElement(PageObject.getEmailEntrance());
         emailEntrance.click();
-        emailEntrance.sendKeys("vldd@yandex.ru");
-        WebElement passwordEntrance = this.driver.findElement(PageObject.passwordEntrance);
+        emailEntrance.sendKeys(EMAIL);
+        WebElement passwordEntrance = this.driver.findElement(PageObject.getPasswordEntrance());
         passwordEntrance.click();
-        passwordEntrance.sendKeys("123444");
-        WebElement entranceButton = this.driver.findElement(PageObject.entranceButton);
+        passwordEntrance.sendKeys(PASSWORD);
+        WebElement entranceButton = this.driver.findElement(PageObject.getEntranceButton());
         entranceButton.click();
         LocalStorage localStorage = ((WebStorage) driver).getLocalStorage();
         accessToken = localStorage.getItem("accessToken");

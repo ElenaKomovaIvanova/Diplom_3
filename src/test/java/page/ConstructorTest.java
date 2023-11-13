@@ -1,5 +1,7 @@
 package page;
 
+import org.example.Client;
+import org.example.PageObject;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -25,41 +27,37 @@ public class ConstructorTest {
         this.driver.manage().timeouts().implicitlyWait(30L, TimeUnit.SECONDS);
         this.driver.get("https://stellarburgers.nomoreparties.site/");
         this.driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(50));
-
-
     }
+
     @Test
-    public void bunOk_test() {
-        WebElement bun = this.driver.findElement(PageObject.bun);
+    public void goToBookmarkBunTest() {
+        WebElement bun = this.driver.findElement(PageObject.getBun());
         new WebDriverWait(driver, Duration.ofSeconds(50)).
-                until(ExpectedConditions.elementToBeClickable(By.xpath
-                        ("/html/body/div/div/header/nav/a/p")));
+                until(ExpectedConditions.elementToBeClickable(PageObject.getPersonalAccountButton()));
         bun.click();
-        Assert.assertTrue(driver.findElement(PageObject.bunConstructor) .isDisplayed());
-
+        Assert.assertTrue(driver.findElement(PageObject.getBunConstructor()).isDisplayed());
     }
 
     @Test
-    public void sauceOk_test() {
-        WebElement sauce = this.driver.findElement(PageObject.sauce);
+    public void goToBookmarkSauceTest() {
+        WebElement sauce = this.driver.findElement(PageObject.getSauce());
         new WebDriverWait(driver, Duration.ofSeconds(50)).
-                until(ExpectedConditions.elementToBeClickable(By.xpath
-                        ("/html/body/div/div/header/nav/a/p")));
+                until(ExpectedConditions.elementToBeClickable(PageObject.getPersonalAccountButton()));
         sauce.click();
-        Assert.assertTrue(driver.findElement(PageObject.sauceConstructor) .isDisplayed());
+        Assert.assertTrue(driver.findElement(PageObject.getSauceConstructor()).isDisplayed());
     }
 
     @Test
-    public void fillingOk_test() {
-        WebElement filling = this.driver.findElement(PageObject.filling);
+    public void goToBookmarkFillingTest() {
+        WebElement filling = this.driver.findElement(PageObject.getFilling());
         new WebDriverWait(driver, Duration.ofSeconds(50)).
-                until(ExpectedConditions.elementToBeClickable(By.xpath
-                        ("/html/body/div/div/header/nav/a/p")));
+                until(ExpectedConditions.elementToBeClickable(PageObject.getPersonalAccountButton()));
         filling.click();
-        Assert.assertTrue(driver.findElement(PageObject.fillingConstructor) .isDisplayed());
+        Assert.assertTrue(driver.findElement(PageObject.getFillingConstructor()).isDisplayed());
     }
+
     @After
-    public void deleteUser () {
+    public void deleteUser() {
         this.driver.quit();
     }
 }

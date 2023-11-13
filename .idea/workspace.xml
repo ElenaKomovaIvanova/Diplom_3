@@ -5,16 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1a25c602-fcc9-4358-956a-5f93a5558057" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/test/java/page/Client.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/page/ConstructorTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/page/EntranceTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/page/PageObject.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/page/PersonalAccountTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/page/RegistrationTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/page/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/page/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/page/ConstructorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/page/ConstructorTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/page/EntranceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/page/EntranceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/page/PageObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/PageObject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/page/PersonalAccountTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/page/PersonalAccountTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/page/RegistrationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/page/RegistrationTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/page/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/User.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,15 +47,26 @@
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/ekomo/IdeaProjects/Diplom_3&quot;
+    &quot;last_directory_selection&quot;: &quot;C:/Users/ekomo/IdeaProjects/Diplom_3/src/main/java/org/example&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/ekomo/IdeaProjects/Diplom_2&quot;
   }
 }</component>
-  <component name="RunManager" selected="JUnit.ConstructorTest.sauceOk_test">
+  <component name="RecentsManager">
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="org.example" />
+    </key>
+  </component>
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="mvn clean test" />
+    </option>
+  </component>
+  <component name="RunManager" selected="JUnit.EntranceTest.registrationFormOk_test">
     <configuration name="ConstructorTest.bunOk_test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Diplom_3" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="page.*" />
+          <option name="PATTERN" value="org.example.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -71,7 +82,7 @@
       <module name="Diplom_3" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="page.*" />
+          <option name="PATTERN" value="org.example.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -87,7 +98,7 @@
       <module name="Diplom_3" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="page.*" />
+          <option name="PATTERN" value="org.example.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -99,7 +110,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PersonalAccountTest.exitOk" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="EntranceTest.registrationFormOk_test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Diplom_3" />
       <extension name="coverage">
         <pattern>
@@ -108,14 +119,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="page" />
-      <option name="MAIN_CLASS_NAME" value="page.PersonalAccountTest" />
-      <option name="METHOD_NAME" value="exitOk" />
+      <option name="MAIN_CLASS_NAME" value="page.EntranceTest" />
+      <option name="METHOD_NAME" value="registrationFormOk_test" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PersonalAccountTest.personalAccountOk_test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="test.loginAccountOk_test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Diplom_3" />
       <extension name="coverage">
         <pattern>
@@ -124,8 +135,8 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="page" />
-      <option name="MAIN_CLASS_NAME" value="page.PersonalAccountTest" />
-      <option name="METHOD_NAME" value="personalAccountOk_test" />
+      <option name="MAIN_CLASS_NAME" value="page.test" />
+      <option name="METHOD_NAME" value="loginAccountOk_test" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -133,11 +144,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.EntranceTest.registrationFormOk_test" />
+        <item itemvalue="JUnit.test.loginAccountOk_test" />
         <item itemvalue="JUnit.ConstructorTest.sauceOk_test" />
         <item itemvalue="JUnit.ConstructorTest.fillingOk_test" />
         <item itemvalue="JUnit.ConstructorTest.bunOk_test" />
-        <item itemvalue="JUnit.PersonalAccountTest.personalAccountOk_test" />
-        <item itemvalue="JUnit.PersonalAccountTest.exitOk" />
       </list>
     </recent_temporary>
   </component>
@@ -155,15 +166,6 @@
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/test/java/page/PersonalAccountTest.java</url>
-          <line>45</line>
-          <properties class="page.PersonalAccountTest" method="personalAccountOk_test">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
         <breakpoint enabled="true" type="java-exception">
           <properties class="java.lang.ExceptionInInitializerError" package="java.lang" />
           <option name="timeStamp" value="4" />
